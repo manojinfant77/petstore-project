@@ -15,7 +15,7 @@ pipeline{
         }
         stage ('checkout scm') {
             steps {
-                git 'https://github.com/vijay3639/petstore-project.git'
+                git 'https://github.com/manojinfant77/petstore-project.git'
             }
         }
         stage ('maven compile') {
@@ -53,7 +53,7 @@ pipeline{
             steps {
                 dir('Ansible'){
                   script {
-                         ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/', playbook: 'docker.yaml'
+                         ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'docker.yaml'
                         }
                    }
               }
